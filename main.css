@@ -1,0 +1,37 @@
+body {
+  --background-color-1: white;
+  --header-color-1: #592891;
+  --text-color-1: #202020;
+}
+
+body#dark {
+  --background-color-1: black;
+  --text-color-1: #eeeeee;
+}
+
+body {
+  margin: 0px;
+  background-color: var(--background-color-1);
+  color: var(--text-color-1);
+  font-size: 4em;
+  font-family: Arial;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--header-color-1);
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h3, h4 {
+  padding: 10px;
+  border-left: 10px solid var(--header-color-1);
+}
+
+div {
+  font-size: 0.9em;
+}
+/*# sourceMappingURL=main.css.map */

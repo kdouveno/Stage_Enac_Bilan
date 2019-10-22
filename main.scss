@@ -1,0 +1,41 @@
+body {
+
+    --background-color-1: white;
+    --header-color-1: #592891;
+    --text-color-1: #202020;
+
+    &#dark{
+        --background-color-1: black;
+        --text-color-1: #eeeeee;
+    }
+}
+
+$bg1: var(--background-color-1);
+$hc1: var(--header-color-1);
+$tc1: var(--text-color-1);
+
+body{
+    margin: 0px;
+    background-color: $bg1;
+    color: $tc1;
+    font-size: 4em;
+    font-family: Arial;
+}
+h1, h2, h3, h4, h5, h6{
+    color: $hc1;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+h1, h2{
+    text-align: center;
+}
+h3, h4{
+    padding: 10px;
+    border-left: 10px solid $hc1;
+}
+div{
+    font-size: 0.9em;
+}
+
+#container{
+    
+}
