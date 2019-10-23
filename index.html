@@ -5,18 +5,46 @@
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<body>
+<body class="dark">
     <div id="container">
         <div id="Cover">
             <h1>ORB_SLAM2</h1>
             <h2>by Raul Mur-Artal</h2>
+            <p>Internship report</p>
         </div>
-        <div>
-            <h3>sauce</h3>
-            <div>
-                <h3>caca</h3>
-            </div>
+        <div id="summary">
+            <div></div>
         </div>
+        <div id="introduction">
+            <h3>Introduction</h3>
+            <p>ORB-SLAM2 is a real-time SLAM(Simultaneous Localization And Mapping) library for Monocular, Stereo and RGB-D cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale). It is able to detect loops and relocalize the camera in real time.
+			It provides several executables for different camera types as well as for ROS support. It use <a>OpenCv</a> for matrix manipulation and its <a>ORB</a> algorythm for key point extraction, Pangolin for graphic interface and</p>
+			<p>ENAC searchers have been intrested in that technology (SLAM Algorythm) but had trouble with running Raul's programm in real time. I was hired as a c++ assistant to bring more comprehension and code knowledge and eventually optimize the programm. Indeed the programm is runnning quite not effictively.</p>
+			<p>During my intershihp I mainly focused on the executable that provided real-time handling of ORB_SLAM2 librairy: the Monocular ROS version. It is the most Intresting part of the programm</p>
+		</div>
+		<div id="running">
+			<h3>Running the programm</h3>
+			<div id="installation">
+				<h3>Installation</h3>
+				<p>In order to run ORB_SLAM2 with ROS on Ubuntu v.16+, make sure you have apt-get utility tool (built in Ubuntu). Because you'll have to install the following packages</p>
+				<h4>with apt</h4>
+				<ul>
+					<li>git</li>
+					<li>gcc / clang</li>
+					<li>libgl1-mesa-dev (package name for opengl librairy)</li>
+					<li>libeigen3 (Eigen 3)</li>
+					<li>Ros</li>
+				</ul>
+				<h4>with git</h4>
+				<ul>
+					<li>OpenCv</li>
+					<li>Pangolin</li>
+					<li>ORB_SLAM2</li>
+				</ul>
+			</div>
+		</div>
+		<div id="directions">
+			<h3>Possible directions</h3>
+			<p>ENAC's earchers have emmited several hypotheses about why the programm is running that bad. They wondered if the code was robust enough, and so did the hardware. They also pointed at the camera properties (resolution, Field of view, calibration), and possible bad habits in ROS use.</p>
+		</div>
     </div>
-</body>
-</html>
