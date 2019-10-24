@@ -31,7 +31,8 @@ h1, h2 {
 
 h3, h4 {
   padding: var(--thickness-1);
-  border-left: var(--thickness-1) solid var(--text-color-1);
+  border-left: var(--thickness-1) solid var(--header-color-1);
+  border-radius: 4px;
 }
 
 div {

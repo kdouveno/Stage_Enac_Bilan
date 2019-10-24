@@ -20,7 +20,14 @@
             <p>ORB-SLAM2 is a real-time SLAM(Simultaneous Localization And Mapping) library for Monocular, Stereo and RGB-D cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale). It is able to detect loops and relocalize the camera in real time.
 			It provides several executables for different camera types as well as for ROS support. It use <a>OpenCv</a> for matrix manipulation and its <a>ORB</a> algorythm for key point extraction, Pangolin for graphic interface and</p>
 			<p>ENAC searchers have been intrested in that technology (SLAM Algorythm) but had trouble with running Raul's programm in real time. I was hired as a c++ assistant to bring more comprehension and code knowledge and eventually optimize the programm. Indeed the programm is runnning quite not effictively.</p>
-			<p>During my intershihp I mainly focused on the executable that provided real-time handling of ORB_SLAM2 librairy: the Monocular ROS version. It is the most Intresting part of the programm</p>
+			<p>During my intershihp I mainly focused on the executable that provided real-time handling of ORB_SLAM2 librairy: the Monocular ROS version. It is the most Intresting part of the programm. I used different lenses on an uEye camera by IDS to test the programm.</p>
+			<div>
+				<h3>What is Simultaneous Localization And Mapping, SLAM</h3>
+				<p>SLAM is an technique that is used to locate a camera in its environment and create a map of this environment. Some SLAM algorythm like ORB_SLAM2 can even handle SLAM with monocular camera. What that means is the programm can build a 3D map and locate a camera in it only analysing the video output of that camera.</p>
+			</div>
+			<div>
+				<h3></h3>
+			</div>
 		</div>
 		<div id="running">
 			<h3>Running the programm</h3>
@@ -41,6 +48,13 @@
 					<li>Pangolin</li>
 					<li>ORB_SLAM2</li>
 				</ul>
+			</div>
+			<div>
+				<h3>Monocular camera calibration</h3>
+				<p>In order to use my uEye camera. I had to ~~install both the IDS's uEye linux driver and the ros-kinetic-ueye-cam driver-node package via apt.</p>
+			</div>
+			<div>
+				<h3></h3>
 			</div>
 		</div>
 		<div id="directions">

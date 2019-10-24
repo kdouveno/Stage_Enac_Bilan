@@ -34,7 +34,8 @@ h1, h2{
 }
 h3, h4{
     padding: $t1;
-    border-left: $t1 solid $tc1;
+	border-left: $t1 solid $hc1;
+	border-radius: 4px;
 }
 div{
 	font-size: 0.9em;
