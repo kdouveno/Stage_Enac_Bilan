@@ -1,3 +1,6 @@
+@import 'top-bar';
+@import 'dark-button';
+
 body {
 
     --background-color-1: white;
@@ -5,17 +8,51 @@ body {
 	--text-color-1: #202020;
 	--thickness-1: 5px;
 
-    &.dark{
+	--container-width: 100vw;
+
+	display: flex;
+	justify-content: center;
+
+    &.dark_theme{
         --background-color-1: black;
         --header-color-1: #9b69d4;
         --text-color-1: #eeeeee;
-    }
+	}
+}
+
+@media print {
+	body {
+		--background-color-1: white;
+		--header-color-1: white;
+		--text-color-1: black;
+		--thickness-1: 5px;
+
+		--container-width: 100vw;
+
+		&.dark_theme{
+			--background-color-1: white;
+			--header-color-1: black;
+			--text-color-1: black;
+		}
+	}
+	.no-print{
+		display: none;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	body{--container-width: 800px;}
 }
 
 $bg1: var(--background-color-1);
 $hc1: var(--header-color-1);
 $tc1: var(--text-color-1);
 $t1: var(--thickness-1);
+$cw: var(--container-width);
+
+#container {
+	width: $cw;
+}
 
 body{
     margin: 0px;
@@ -23,10 +60,14 @@ body{
     color: $tc1;
     letter-spacing: .3px;
     font-family: sans-serif;
-    font-size: font-size 2em;
+	font-size: 1.5em;
+	transition: none $circle_out_ease;
+	transition-property: background-color, color;
 }
 h1, h2, h3, h4, h5, h6{
-    color: $hc1;
+	color: $hc1;
+	transition: color $circle_out_ease;
+	
     font-family: "Lucida Console", Monaco, monospace;
 }
 h1, h2{
@@ -40,6 +81,9 @@ h3, h4{
 div{
 	font-size: 0.9em;
 	padding: $t1;
+}
+p, ul{
+	font-size: 1rem;
 }
 #Cover{
     p{

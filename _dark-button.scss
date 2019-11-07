@@ -1,0 +1,82 @@
+/*@keyframes star {
+	0%{
+		d: path(" M 0 60 A 60 60 0 0 1 60 0 A 60 60 0 0 1 0 -60 A 60 60 0 0 1 -60 0 A 60 60 0 0 1 0 60");
+		animation-timing-function:cubic-bezier(0.755, 0.05, 0.855, 0.06);
+		transform: rotate(0deg);
+	}
+	50%{
+		d: path(" M 0 60 A 1000 1000 0 0 1 60 0 A 1000 1000 0 0 1 0 -60 A 1000 1000 0 0 1 -60 0 A 1000 1000 0 0 1 0 60");
+	}
+	50.0000001%{
+		d: path(" M 0 60 A 1000 1000 0 0 0 60 0 A 1000 1000 0 0 0 0 -60 A 1000 1000 0 0 1 -60 0 A 1000 1000 0 0 0 0 60");
+		animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+
+	}
+	100%{
+		d: path(" M 0 60 A 60 60 0 0 0 60 0 A 60 60 0 0 0 0 -60 A 42 42 0 0 1 -60 0 A 60 60 0 0 0 0 60");
+	}
+}*/
+$circle_out_ease: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+body{
+	--dark-theme-button-color: rgb(197, 84, 19);
+
+	&.dark_theme{
+		--dark-theme-button-color: yellow;
+
+	}
+}
+$dtbc: var(--dark-theme-button-color);
+#dark-button {
+	#star{
+		transition: fill $circle_out_ease;
+	}
+	#moon{
+		fill: transparent;
+		.dark_theme &{
+			fill: $dtbc;
+		}
+	}
+	#frame{
+		fill: $dtbc;
+		transition: fill $circle_out_ease;
+
+	}
+	#frame_template{
+		d: path("M 0 -90 h 0 a 90 90 0 0 0 0 180 H 0 h 0 a 90 90 0 0 0 0 -180 Z");
+		stroke-width: 10;
+		stroke: $dtbc;
+		transition: d $circle_out_ease;
+
+	}
+	#frame_stroke{
+		fill: transparent;
+	}
+	#star{
+		fill: $dtbc;
+		.dark_theme & {
+			fill: transparent;
+		}
+	}
+	.inner{
+		transform: translateX(100px);
+		transition: transform $circle_out_ease;
+	}
+	.dark_theme &{
+		.inner{
+			transform: translateX(-100px);
+		}
+	}
+	#hole{
+		stroke: $dtbc;
+		stroke-width: 5;
+		fill: blue;
+	}
+	&:hover{
+		#frame_template{
+			d: path("M 0 -90 h -100 a 90 90 0 0 0 0 180 H 0 h 100 a 90 90 0 0 0 0 -180 Z");
+		}
+		.inner, .dark_theme & .inner{
+			transform: translateX(0px);
+		}
+	}
+}

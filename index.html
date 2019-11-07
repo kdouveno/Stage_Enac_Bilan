@@ -2,10 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Rapport de Stage - ORB_SLAM2</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<body class="dark">
+<body class="dark_theme">
+	<div id="top-bar">
+		<svg id="dark-button" height="50px" width="100px" onclick="switchBlackTheme(this)" viewBox="0 0 400 200">
+			<defs>
+				<path id="frame_template"/>
+				<clipPath id="frame_path">
+					<use href="#frame_template" x=200 y=100 />
+				</clipPath>
+				
+				<path id="star_template" d="M 0 60 A 60 60 0 0 1 60 0 A 60 60 0 0 1 0 -60 A 60 60 0 0 1 -60 0 A 60 60 0 0 1 0 60"/>
+				<path id="moon_template" d="M 0 -60 A 60 60 0 1 1 -60 0 A 50 50 0 1 0 0 -60 Z"/>
+				<path id="rect_path" d="M -200 -100 H 200 V 100 H -200 Z"/>
+				<circle id="hole_template" r="85"/>
+
+				<g id="whole" clip-path="url(#frame_path)">
+						<g class="inner">
+							<use id="star" href="#star_template" x=100 y=100 />
+							<use id="moon" href="#moon_template" x=300 y=100 />
+							<use id="hole" class="inner" href="#hole_template" />  
+						</g>
+					</g>
+				<mask id="moon_mask">
+					<use href="#rect_path" fill="white"/>
+					<use href="#moon_template" x=100 />
+					<use href="#star_template" x=-100 />
+					<use class="inner" href="#hole_template" x="100"/>
+				</mask>
+			</defs>
+			<use href="#whole"/>
+			
+			<use id="frame" href="#frame_template" x=200 y=100 mask="url(#moon_mask)" />
+			<use id="frame-stroke" href="#frame_template" x=200 y=100 fill="transparent"/>
+		</svg>
+		<script>
+				function switchBlackTheme() {
+					var e = document.body;
+					if(e.getAttribute("class") === "dark_theme") e.setAttribute("class", "");
+					else e.setAttribute("class", "dark_theme");
+				}
+			</script>
+	</div>
     <div id="container">
         <div id="Cover">
             <h1>ORB_SLAM2</h1>
@@ -16,49 +56,117 @@
             <div></div>
         </div>
         <div id="introduction">
-            <h3>Introduction</h3>
-            <p>ORB-SLAM2 is a real-time SLAM(Simultaneous Localization And Mapping) library for Monocular, Stereo and RGB-D cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale). It is able to detect loops and relocalize the camera in real time.
-			It provides several executables for different camera types as well as for ROS support. It use <a>OpenCv</a> for matrix manipulation and its <a>ORB</a> algorythm for key point extraction, Pangolin for graphic interface and</p>
-			<p>ENAC searchers have been intrested in that technology (SLAM Algorythm) but had trouble with running Raul's programm in real time. I was hired as a c++ assistant to bring more comprehension and code knowledge and eventually optimize the programm. Indeed the programm is runnning quite not effictively.</p>
-			<p>During my intershihp I mainly focused on the executable that provided real-time handling of ORB_SLAM2 librairy: the Monocular ROS version. It is the most Intresting part of the programm. I used different lenses on an uEye camera by IDS to test the programm.</p>
+			<h3>Introduction</h3>
 			<div>
-				<h3>What is Simultaneous Localization And Mapping, SLAM</h3>
-				<p>SLAM is an technique that is used to locate a camera in its environment and create a map of this environment. Some SLAM algorythm like ORB_SLAM2 can even handle SLAM with monocular camera. What that means is the programm can build a 3D map and locate a camera in it only analysing the video output of that camera.</p>
-			</div>
-			<div>
-				<h3></h3>
+				<p>ORB-SLAM2 is a real-time SLAM(Simultaneous Localization And Mapping) library for Monocular, Stereo and RGB-D cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale).
+					It is able to detect loops and relocalize the camera in real time.
+					It provides several executables for different camera types as well as for ROS support.
+					It use <a>OpenCv</a> for matrix manipulation and its <a>ORB</a> algorythm for key point extraction, Pangolin for graphic interface and</p>
+				<p>ENAC searchers have been intrested in that technology (SLAM Algorythm) but had trouble with running Raul's programm in real time. I was hired as a c++ assistant to bring more comprehension and code knowledge and eventually optimize the programm. Indeed the programm is runnning quite not effictively.</p>
+				<p>During my intershihp I mainly focused on the executable that provided real-time handling of ORB_SLAM2 librairy: the Monocular ROS version. It is the most Intresting part of the programm. I used different lenses on an uEye camera by IDS to test the programm.</p>
+				<div>
+					<h3>What is Simultaneous Localization And Mapping, SLAM</h3>
+					<p>SLAM is a technique that is used to locate a camera in its environment and create a map of this environment. Some SLAM algorythm like ORB_SLAM2 can even handle SLAM with monocular camera. What that means is the programm can build a 3D map and locate a camera in it only analysing the video output of that camera.</p>
+				</div>
+				<div>
+					<h3></h3>
+				</div>
 			</div>
 		</div>
 		<div id="running">
 			<h3>Running the programm</h3>
-			<div id="installation">
-				<h3>Installation</h3>
-				<p>In order to run ORB_SLAM2 with ROS on Ubuntu v.16+, make sure you have apt-get utility tool (built in Ubuntu). Because you'll have to install the following packages</p>
-				<h4>with apt</h4>
-				<ul>
-					<li>git</li>
-					<li>gcc / clang</li>
-					<li>libgl1-mesa-dev (package name for opengl librairy)</li>
-					<li>libeigen3 (Eigen 3)</li>
-					<li>Ros</li>
-				</ul>
-				<h4>with git</h4>
-				<ul>
-					<li>OpenCv</li>
-					<li>Pangolin</li>
-					<li>ORB_SLAM2</li>
-				</ul>
-			</div>
 			<div>
-				<h3>Monocular camera calibration</h3>
-				<p>In order to use my uEye camera. I had to ~~install both the IDS's uEye linux driver and the ros-kinetic-ueye-cam driver-node package via apt.</p>
-			</div>
-			<div>
-				<h3></h3>
+				<div id="installation">
+					<h3>Installation</h3>
+					<div>
+						<p>To be able run ORB_SLAM2 with ROS on Ubuntu v.16+, make sure you have apt-get utility tool (built in Ubuntu). Because you'll have to install the following packages</p>
+						<h4>with apt</h4>
+						<ul>
+							<li>git</li>
+							<li>gcc / clang</li>
+							<li>libgl1-mesa-dev (package name for opengl librairy)</li>
+							<li>libeigen3 (Eigen 3)</li>
+							<li>Ros</li>
+						</ul>
+						<h4>with git</h4>
+						<ul>
+							<li>OpenCv</li>
+							<li>Pangolin</li>
+							<li>ORB_SLAM2</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<h3>Monocular camera calibration</h3>
+					<div>
+						<p>In order to use my uEye camera. I had to ~~install both the IDS's uEye linux driver and the ros-kinetic-ueye-cam driver-node package via apt. Once it's done I could launch the uEye </p>
+					</div>
+				</div>
+				<div>
+					<h3>Launch ORB-SLAM2</h3>
+				</div>
+				<div>
+					<h3>First observations</h3>
+					<div>
+						
+					</div>
+				</div>
 			</div>
 		</div>
 		<div id="directions">
-			<h3>Possible directions</h3>
-			<p>ENAC's earchers have emmited several hypotheses about why the programm is running that bad. They wondered if the code was robust enough, and so did the hardware. They also pointed at the camera properties (resolution, Field of view, calibration), and possible bad habits in ROS use.</p>
+			<h3>Possible search directions</h3>
+			<div>
+				<p>ENAC's earchers have emmited several hypotheses about why the programm is running that bad. They wondered if the code was robust enough, and so did the hardware. They also pointed at the camera properties (resolution, Field of view, calibration), and possible bad habits in ROS use.</p>
+				<div id="raul">
+					<h3>Raul Mur-Artal on ORB_SLAM2</h3>
+					<div>
+						<p>Raul is a searcher scientist, he made ORB_SLAM as part of his thesis. As an ex PhD student, he has acquired certain skills, in algorythm and c++ developpement. So the chances for the code to be unefficient or not optimized is rather too low or unsolvable for me. <p>
+						<p>ORB_SLAM2 is a sequel to ORB_SLAM, this version adds RGB-D camera and sterero support. But the main purpose of ORB_SLAM is to have a SLAM algorithm that works with the cheapest capture set-up possible: a single camera.</p>
+					</div>
+				</div>
+				<div id="code">
+					<h3>The Code</h3>
+					<div>
+						<p>The code looks pretty clear to me. It is well commented, each section is sapareated without impacting runtime, it is optimized, at least it looks pretty much like so to me. In any case, I don't have the means to anhance it.</p>
+						<br/>
+						<p>The code, and so, the programm, while in ros-monocular is divided in three main threads plus a thread per image.</p>
+						<p>Each image is sent to the ORB_extractor, a feature extractor that use a Vocabulary in the form of a bag of word. I will then extract key points from each frame. Each extraction, each frame, is computed asynchonously, that means multiple images are computed at the same time.</p>
+						<p>After that, each frame and it's extracted KeyPoints are sent to the tracking thread</p>
+						<div id="tracking">
+							<h3>Tracking</h3>
+							<div>
+								<p>Tracking is itself divided in 5 states</p>
+								<ul>
+									<li>System not ready</li>
+									<li>No image yet</li>
+									<li>Not initialized - To start the SLAM, ORB_SLAM2 needs an initial map, and in monocular it can't be created at first frame because monocular camera doesn't allow depths resolution, ORB_SLAM2 have to make a first look-arround to create the initial map. So this mode appears only in monocular mode</li>
+									<li>OK - The system works correctly, all algorythmes are working correctly</li>
+									<li>LOST - The system lost track of the map. Orb Extraction's KeyPoints doesn't match any of the MapPoints, you need to move the vamera back to somwhere registered to the map.</li>
+								</ul>
+								<p>Tracking decides whether or not a frame object will become a keyFrame and be registered in the KeyFrameDatabase object. It tests if there is a good balance between matching KeyPoints with MapPoint and non-matching KeyPoints.</p>
+								<p>It then sends the frame to the localMapping and LoopClosing loops that are initialized at System class instantiation...</p>
+							</div>
+						</div>
+						<div id="local_mapping">
+							<h3>Local Mapping</h3>
+							<div>
+								<p>Local Mapping is executed asynchonously to the tracking thread and has the mission to join new KeyFrames, that are briantly stored in memory in a sort of entrance queue via mutex objects, and their KeyPoints, to the map. It does adjustment and fusion between identical neighboor KeyFrame KeyPoints.</p>
+							</div>
+						</div>
+						<div id="loop_closing">
+							<h3>Loop Closing</h3>
+							<div>
+								<p>Loop Closing is called whether new Keyframes are a loop candidate by checking covisibility consistency. It is also running asynchronously. If a new KeyFrame has enough KeyPoints that are not in its direct KeyFrame neighborhood, ORB_SLAM2 proceed to a loop closure. It adjust all keyframes between the keyframe covisible to the new keyframe and the new KeyFrame</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="camera">
+					<h3>The input camera</h3>
+					<div>
+						<p>The camera seems to have a great impact on how effective the program is.</p>
+					</div>
+				</div>
+			</div>
 		</div>
     </div>
