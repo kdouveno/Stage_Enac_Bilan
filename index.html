@@ -11,33 +11,43 @@
 			<defs>
 				<path id="frame_template"/>
 				<clipPath id="frame_path">
-					<use href="#frame_template" x=200 y=100 />
+					<use href="#frame_template"/>
 				</clipPath>
 				
-				<path id="star_template" d="M 0 60 A 60 60 0 0 1 60 0 A 60 60 0 0 1 0 -60 A 60 60 0 0 1 -60 0 A 60 60 0 0 1 0 60"/>
-				<path id="moon_template" d="M 0 -60 A 60 60 0 1 1 -60 0 A 50 50 0 1 0 0 -60 Z"/>
+				<path class="inner" id="star_template" d="M 0 60 A 60 60 0 0 1 60 0 A 60 60 0 0 1 0 -60 A 60 60 0 0 1 -60 0 A 60 60 0 0 1 0 60"/>
+				<path class="inner" id="moon_template" d="M 0 -60 A 60 60 0 1 1 -60 0 A 50 50 0 1 0 0 -60 Z"/>
 				<path id="rect_path" d="M -200 -100 H 200 V 100 H -200 Z"/>
-				<circle id="hole_template" r="85"/>
+				<path class="inner" id="hole_template" d="m 0 -85 a 1 1 0 0 0 0 170 a 1 1 0 0 0 0 -170 z"/>
 
-				<g id="whole" clip-path="url(#frame_path)">
-						<g class="inner">
-							<use id="star" href="#star_template" x=100 y=100 />
-							<use id="moon" href="#moon_template" x=300 y=100 />
-							<use id="hole" class="inner" href="#hole_template" />  
-						</g>
-					</g>
-				<mask id="moon_mask">
-					<use href="#rect_path" fill="white"/>
-					<use href="#moon_template" x=100 />
-					<use href="#star_template" x=-100 />
-					<use class="inner" href="#hole_template" x="100"/>
-				</mask>
+				
 			</defs>
-			<use href="#whole"/>
-			
-			<use id="frame" href="#frame_template" x=200 y=100 mask="url(#moon_mask)" />
-			<use id="frame-stroke" href="#frame_template" x=200 y=100 fill="transparent"/>
-		</svg>
+			<g id="svg_container">
+					<g clip-path="url(#frame_path)" >
+						<defs>
+							<use id="moon" href="#moon_template" x=100 />
+							<use id="star" href="#star_template" x=-100 />
+							
+							<clipPath id="hole_clip">
+								<use id="hole" href="#hole_template"/>
+							</clipPath>
+						</defs>
+						<g clip-path="url(#hole_clip)">
+							<use href="#moon" class="icon" />
+							<use href="#star" class="icon" />
+						</g>
+						<mask id="frame_mask" style="fill: black">
+							<use href="#rect_path" style="fill: white" />
+		
+							<use href="#hole_template" />
+							<use href="#moon" style="fill: black"/>
+							<use href="#star" style="fill: black"/>
+						</mask>
+					</g>
+					<use id="frame" href="#frame_template" mask="url(#frame_mask)" />
+					<use href="#frame_template" fill="transparent"/>
+
+				</g>
+			</svg>
 		<script>
 				function switchBlackTheme() {
 					var e = document.body;
@@ -46,7 +56,12 @@
 				}
 			</script>
 	</div>
-    <div id="container">
+	<div id="svg_demo">
+		<svg>
+			
+		</svg>
+	</div>
+	<div id="container">
         <div id="Cover">
             <h1>ORB_SLAM2</h1>
             <h2>by Raul Mur-Artal</h2>

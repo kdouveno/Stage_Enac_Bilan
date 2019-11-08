@@ -3,21 +3,31 @@
 
 body {
 
-    --background-color-1: white;
-    --header-color-1: #592891;
-	--text-color-1: #202020;
+	--color1: #5A2991;
+	--color2: #FF4F4F;
+	--color3: #5BB374;
+	--colorB: #FFF;
+	--colorT: #000;
 	--thickness-1: 5px;
 
 	--container-width: 100vw;
+	//dark-theme-toggle button variables
+	--dark-theme-button-color: var(--color1);
 
 	display: flex;
 	justify-content: center;
 
     &.dark_theme{
-        --background-color-1: black;
-        --header-color-1: #9b69d4;
-        --text-color-1: #eeeeee;
+        --color1: #9D47FF;
+		--color2: #FFFF50;
+		--color3: #5BB374;
+		--colorB: #000;
+		--colorT: #FFF;
+		//dark-theme-toggle button variables
+
+		--dark-theme-button-color: var(--color2);
 	}
+
 }
 
 @media print {
@@ -44,9 +54,11 @@ body {
 	body{--container-width: 800px;}
 }
 
-$bg1: var(--background-color-1);
-$hc1: var(--header-color-1);
-$tc1: var(--text-color-1);
+$cB: var(--colorB);
+$c1: var(--color1);
+$c2: var(--color2);
+$cT: var(--colorT);
+
 $t1: var(--thickness-1);
 $cw: var(--container-width);
 
@@ -56,8 +68,8 @@ $cw: var(--container-width);
 
 body{
     margin: 0px;
-    background-color: $bg1;
-    color: $tc1;
+    background-color: $cB;
+    color: $cT;
     letter-spacing: .3px;
     font-family: sans-serif;
 	font-size: 1.5em;
@@ -65,17 +77,20 @@ body{
 	transition-property: background-color, color;
 }
 h1, h2, h3, h4, h5, h6{
-	color: $hc1;
+	color: $c1;
 	transition: color $circle_out_ease;
 	
     font-family: "Lucida Console", Monaco, monospace;
+}
+h1{
+	color: $c2;
 }
 h1, h2{
     text-align: center;
 }
 h3, h4{
     padding: $t1;
-	border-left: $t1 solid $hc1;
+	border-left: $t1 solid $c1;
 	border-radius: 4px;
 }
 div{

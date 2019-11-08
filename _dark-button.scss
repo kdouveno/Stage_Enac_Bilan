@@ -18,65 +18,60 @@
 }*/
 $circle_out_ease: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 body{
-	--dark-theme-button-color: rgb(197, 84, 19);
+	--dark-theme-button-color: black;
 
 	&.dark_theme{
-		--dark-theme-button-color: yellow;
+		--dark-theme-button-color: white;
 
 	}
 }
 $dtbc: var(--dark-theme-button-color);
 #dark-button {
-	#star{
-		transition: fill $circle_out_ease;
+	#svg_container{
+		transform: translate(200px, 100px);
 	}
-	#moon{
-		fill: transparent;
-		.dark_theme &{
-			fill: $dtbc;
-		}
+	.icon{
+		fill: $dtbc;
+		transition: fill $circle_out_ease;
+
 	}
 	#frame{
 		fill: $dtbc;
 		transition: fill $circle_out_ease;
-
 	}
 	#frame_template{
 		d: path("M 0 -90 h 0 a 90 90 0 0 0 0 180 H 0 h 0 a 90 90 0 0 0 0 -180 Z");
 		stroke-width: 10;
 		stroke: $dtbc;
-		transition: d $circle_out_ease;
+		transition: none $circle_out_ease;
+		transition-property: stroke, d;
 
 	}
-	#frame_stroke{
-		fill: transparent;
-	}
-	#star{
-		fill: $dtbc;
-		.dark_theme & {
-			fill: transparent;
-		}
-	}
 	.inner{
-		transform: translateX(100px);
+		transform: translateX(-100px);
 		transition: transform $circle_out_ease;
-	}
-	.dark_theme &{
-		.inner{
-			transform: translateX(-100px);
+		.dark_theme &{
+			transform: translateX(100px)
+		}
+		&#hole_template{
+			transform: translateX(0);
 		}
 	}
 	#hole{
-		stroke: $dtbc;
-		stroke-width: 5;
-		fill: blue;
+		transform: translate
 	}
 	&:hover{
-		#frame_template{
-			d: path("M 0 -90 h -100 a 90 90 0 0 0 0 180 H 0 h 100 a 90 90 0 0 0 0 -180 Z");
+		.inner{
+			transform: translateX(0);
+			&#hole_template{
+				transform: translateX(-100px);
+				.dark_theme &{
+					transform: translateX(100px);
+				}
+			}
 		}
-		.inner, .dark_theme & .inner{
-			transform: translateX(0px);
+		#frame_template{
+			d: path("M 0 -90 h -100 a 90 90 0 0 0 0 180 H 0 h 100 a 90 90 0 0 0 0 -180 Z")
 		}
 	}
 }
