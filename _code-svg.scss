@@ -1,0 +1,83 @@
+@import 'variables';
+
+#code svg{
+	fill: transparent;
+	stroke-width: 5;
+	&>g{
+		stroke: $c2;
+	}
+	&>rect{ //to suppress
+		//stroke: $c2;
+	}
+	.dasharray_line{
+		stroke-dasharray: 20 5;
+		opacity: .5;
+	}
+
+	#camera{
+		#wheel{
+			fill: $c3;
+			stroke: $c3;
+			fill-rule: evenodd;
+		}
+		#lens{
+			fill: $c2;
+			stroke: $c1;
+		}
+		#case{
+			stroke: $c1;
+		}
+	}
+	#mountain{
+		#pic{
+			fill: $c3;
+		}
+		#edge{
+			fill: $cB;
+			stroke: $c2;
+			.dark_theme &{
+				fill: $cT;
+				stroke: $cT;
+			}
+		}
+	}
+	use[href="#borders"]{
+		stroke: $c1;
+		transition: fill $circle_out_ease;
+	}
+	#background, #borders_borders{
+		fill: $cB;
+	}
+	#picture{
+		
+		#picture_star{
+			fill: $c2;
+			opacity: 0.9;
+		}
+		.innner_picture{
+			clip-path: url("#picture_border_clip");
+		}
+	}
+	#keyframe #key{
+		fill: $c1;
+		stroke: $c2;
+	}
+	#extraction_threads{
+		fill: $c1;
+		opacity: .4;
+		font-size: 35px;
+	}
+	#tracking_thread{
+		fill: $c2;
+		opacity: .4;
+		font-size: 40px;
+		text-anchor: start;
+	}
+	text{
+		text-anchor: middle;
+		fill: $cT;
+		stroke-width: 0;
+		font-size: 25px;
+		font-weight: bold;;
+	}
+}

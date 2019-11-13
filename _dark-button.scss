@@ -1,22 +1,4 @@
-/*@keyframes star {
-	0%{
-		d: path(" M 0 60 A 60 60 0 0 1 60 0 A 60 60 0 0 1 0 -60 A 60 60 0 0 1 -60 0 A 60 60 0 0 1 0 60");
-		animation-timing-function:cubic-bezier(0.755, 0.05, 0.855, 0.06);
-		transform: rotate(0deg);
-	}
-	50%{
-		d: path(" M 0 60 A 1000 1000 0 0 1 60 0 A 1000 1000 0 0 1 0 -60 A 1000 1000 0 0 1 -60 0 A 1000 1000 0 0 1 0 60");
-	}
-	50.0000001%{
-		d: path(" M 0 60 A 1000 1000 0 0 0 60 0 A 1000 1000 0 0 0 0 -60 A 1000 1000 0 0 1 -60 0 A 1000 1000 0 0 0 0 60");
-		animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-
-	}
-	100%{
-		d: path(" M 0 60 A 60 60 0 0 0 60 0 A 60 60 0 0 0 0 -60 A 42 42 0 0 1 -60 0 A 60 60 0 0 0 0 60");
-	}
-}*/
-$circle_out_ease: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+@import 'variables';
 body{
 	--dark-theme-button-color: black;
 

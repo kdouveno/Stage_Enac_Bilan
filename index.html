@@ -56,11 +56,6 @@
 				}
 			</script>
 	</div>
-	<div id="svg_demo">
-		<svg>
-			
-		</svg>
-	</div>
 	<div id="container">
         <div id="Cover">
             <h1>ORB_SLAM2</h1>
@@ -76,9 +71,9 @@
 				<p>ORB-SLAM2 is a real-time SLAM(Simultaneous Localization And Mapping) library for Monocular, Stereo and RGB-D cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale).
 					It is able to detect loops and relocalize the camera in real time.
 					It provides several executables for different camera types as well as for ROS support.
-					It use <a>OpenCv</a> for matrix manipulation and its <a>ORB</a> algorythm for key point extraction, Pangolin for graphic interface and</p>
+					It use <a>OpenCv</a> for matrix manipulation and its <a>ORB</a> algorythm for feature extraction, Pangolin for graphic interface and</p>
 				<p>ENAC searchers have been intrested in that technology (SLAM Algorythm) but had trouble with running Raul's programm in real time. I was hired as a c++ assistant to bring more comprehension and code knowledge and eventually optimize the programm. Indeed the programm is runnning quite not effictively.</p>
-				<p>During my intershihp I mainly focused on the executable that provided real-time handling of ORB_SLAM2 librairy: the Monocular ROS version. It is the most Intresting part of the programm. I used different lenses on an uEye camera by IDS to test the programm.</p>
+				<p>During my intershihp I mainly focused on the executable of ORB_SLAM2 librairy that provided real-time handling : the Monocular ROS version. It is the most Intresting part of the programm. I used different lenses on an uEye camera by IDS to test the programm.</p>
 				<div>
 					<h3>What is Simultaneous Localization And Mapping, SLAM</h3>
 					<p>SLAM is a technique that is used to locate a camera in its environment and create a map of this environment. Some SLAM algorythm like ORB_SLAM2 can even handle SLAM with monocular camera. What that means is the programm can build a 3D map and locate a camera in it only analysing the video output of that camera.</p>
@@ -141,6 +136,149 @@
 				</div>
 				<div id="code">
 					<h3>The Code</h3>
+					<svg width="100%" viewBox="0 0 1800 900">
+						<rect x="0" y="0" width="100%" height="100%"/>
+						<g>
+							<defs>
+								<g id="camera">
+									<path id="case" d="M 75 50 h -150 v -100 h 150 z"/>
+									<path id="lens" d="M 75 0 l 50 50 v -100 z"/>
+									<path id="wheel"
+										d="	M 0 -40 a 1 1 0 0 0 0 80 a 1 1 0 0 0 0 -80 z
+											M 0 -30 a 1 1 0 0 0 0 20 a 1 1 0 0 0 0 -20 z
+											M 0 10 a 1 1 0 0 0 0 20 a 1 1 0 0 0 0 -20 z
+											M 20 -10 a 1 1 0 0 0 0 20 a 1 1 0 0 0 0 -20 z
+											M -20 -10 a 1 1 0 0 0 0 20 a 1 1 0 0 0 0 -20 z
+											"/>
+								</g>
+								<g id="mountain">
+									<path id="pic" d="M 0 -10 l 30 60 h -60 z"/>
+									<path id="edge" d="M 0 -10 l 10 20 h -20 z"/>
+								</g>
+
+								<path id="borders" d="M 75 50 h -150 v -100 h 130 l 20 20 z"/>
+
+								<g id="picture">
+									<use id="background" href="#borders"/>
+									<use class="inner_picture" href="#mountain" style="transform: translate(-50px, 7px) scale(.8)"/>
+									<use class="inner_picture" href="#mountain" style="transform: translate(40px, 17px) scale(.6)"/>
+									<use class="inner_picture" href="#mountain" style="transform: translate(0px, -15px) scale(1.2)"/>
+									<path class="inner_picture" id="picture_star" d="M 0 60 A 60 60 0 0 1 60 0 A 60 60 0 0 1 0 -60 A 60 60 0 0 1 -60 0 A 60 60 0 0 1 0 60" style="transform: translate(-40px, -20px) scale(.5)"/>
+									<use href="#borders" />
+								</g>
+								<g id="keyframe">
+									<use href="#picture"/>
+									<path id="key" d="M -5 15 a 20 20 0 1 1 -10 -10 l 40 -40 l 20 20 l -10 10 l -10 -10 l -5 5 l 10 10 l -10 10 l -10 -10 z"/>
+								</g>
+								<path id="arrow" d="M -10 -20 l 20 20 l -20 20"/>
+							</defs>
+							<line class="dasharray_line" x1="0" y1="300"
+								  x2="1800" y2="300"/>
+							<line class="dasharray_line" x1="300" y1="600"
+								  x2="1800" y2="600"/>
+							<line class="dasharray_line" x1="300" y1="0"
+								  x2="300" y2="900"/>
+							<line class="dasharray_line" x1="900" y1="0"
+								  x2="900" y2="300"/>
+							<use href="#camera" x=120 y=150 />
+							<use href="#arrow" x=300 y=150 />
+
+							<g style="transform:translate(470px, 130px)" opacity=".33" >
+								<use href="#picture"/>
+								<use href="#arrow" style="transform: translate(150px, -5px)"/>
+							</g>
+							<g style="transform:translate(450px, 150px)" opacity=".66">
+								<use href="#picture"/>
+								<use href="#arrow" style="transform: translate(150px, 0px)"/>
+							</g>
+							<g style="transform:translate(430px, 170px)" >
+								<use href="#picture"/>
+								<use href="#arrow" style="transform: translate(150px, 5px)"/>
+							</g>
+							<text id="extraction_threads" style="transform: translate(450px, 270px)">1 thread/frame</text>
+
+
+
+							<g style="transform: translate(650px, 50px)" >
+								<rect width="200" height="200" />
+
+								<text style="transform: translate(100px, 100px)">
+									<tspan x=0 >ORB</tspan>
+									<tspan dy="1.2em" x=0 >Extraction</tspan>
+								</text>
+							</g>
+							<use href="#arrow" x=900 y=150 />
+
+							<text id="tracking_thread" style="transform: translate(945px, 30px)">Tracking: 1 Thread</text>
+
+							<g style="transform: translate(950px, 50px)" >
+								<rect width="200" height="200" />
+
+								<text style="transform: translate(100px, 100px)">
+									<tspan x=0 >Initialization /</tspan>
+									<tspan dy="1.2em" x=0 >Relocalization</tspan>
+								</text>
+							</g>
+							<use href="#arrow" x=1200 y=150 />
+							<g style="transform: translate(1250px, 50px)" >
+								<rect width="200" height="200" />
+
+								<text style="transform: translate(100px, 100px)">
+									<tspan x=0 >Track</tspan>
+									<tspan dy="1.2em" x=0 >Local Map</tspan>
+								</text>
+							</g>
+							<use href="#arrow" x=1500 y=150 />
+
+							<g style="transform: translate(1550px, 50px)" >
+								<rect width="200" height="200" />
+
+								<text style="transform: translate(100px, 100px)">
+									<tspan x=0 >New KeyFrame</tspan>
+									<tspan dy="1.2em" x=0 >Decision</tspan>
+								</text>
+							</g>
+							
+							<use href="#arrow" style="transform: translate(1650px, 300px) rotate(90deg)" />
+							<use href="#keyframe" style="transform: translate(1670px, 430px); opacity: 0.33"/>
+							<use href="#keyframe" style="transform: translate(1650px, 450px); opacity: 0.66"/>
+							<use href="#keyframe" style="transform: translate(1630px, 470px)"/>
+
+							<use href="#arrow" style="transform: translate(1500px, 450px) rotate(180deg)"/>
+
+
+							<g style="transform: translate(1250px, 350px)" >
+								<rect width="200" height="200" />
+
+								<text style="transform: translate(100px, 82px)">
+									<tspan x=0 >KeyFrame</tspan>
+									<tspan dy="1.2em" x=0 >Insertion</tspan>
+									<tspan dy="1.2em" x=0 >In Map</tspan>
+								</text>
+							</g>
+							<use href="#arrow" style="transform: translate(1200px, 450px) rotate(180deg)"/>
+
+							<g style="transform: translate(950px, 350px)" >
+								<rect width="200" height="200" />
+
+								<text style="transform: translate(100px, 100px)">
+									<tspan x=0 >Local Map</tspan>
+									<tspan dy="1.2em" x=0 >Adjustment</tspan>
+								</text>
+							</g>
+							<use href="#arrow" style="transform: translate(900px, 450px) rotate(180deg)"/>
+							<g style="transform: translate(650px, 350px)" >
+								<rect width="200" height="200" />
+
+								<text style="transform: translate(100px, 100px)">
+									<tspan x=0 >Local Map</tspan>
+									<tspan dy="1.2em" x=0 >Adjustment</tspan>
+								</text>
+							</g>
+							<use href="#arrow" style="transform: translate(600px, 450px) rotate(180deg)"/>
+	
+						</g>
+					</svg>
 					<div>
 						<p>The code looks pretty clear to me. It is well commented, each section is sapareated without impacting runtime, it is optimized, at least it looks pretty much like so to me. In any case, I don't have the means to anhance it.</p>
 						<br/>

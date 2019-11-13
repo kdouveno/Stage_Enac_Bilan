@@ -1,5 +1,7 @@
 @import 'top-bar';
 @import 'dark-button';
+@import 'code-svg';
+@import 'variables';
 
 body {
 
@@ -54,13 +56,10 @@ body {
 	body{--container-width: 800px;}
 }
 
-$cB: var(--colorB);
-$c1: var(--color1);
-$c2: var(--color2);
-$cT: var(--colorT);
-
 $t1: var(--thickness-1);
 $cw: var(--container-width);
+
+
 
 #container {
 	width: $cw;
