@@ -62,16 +62,15 @@
 		fill: $c1;
 		stroke: $c2;
 	}
-	#extraction_threads{
-		fill: $c1;
-		opacity: .4;
-		font-size: 35px;
-	}
-	#tracking_thread{
+
+	.thread{
 		fill: $c2;
 		opacity: .4;
 		font-size: 40px;
 		text-anchor: start;
+	}
+	.list{
+		text-anchor: start;;
 	}
 	text{
 		text-anchor: middle;

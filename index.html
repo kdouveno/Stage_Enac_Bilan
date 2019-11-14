@@ -183,6 +183,8 @@
 							<use href="#camera" x=120 y=150 />
 							<use href="#arrow" x=300 y=150 />
 
+							<text class="thread" style="transform: translate(350px, 30px)">Feature Extraction : </text>
+
 							<g style="transform:translate(470px, 130px)" opacity=".33" >
 								<use href="#picture"/>
 								<use href="#arrow" style="transform: translate(150px, -5px)"/>
@@ -195,8 +197,7 @@
 								<use href="#picture"/>
 								<use href="#arrow" style="transform: translate(150px, 5px)"/>
 							</g>
-							<text id="extraction_threads" style="transform: translate(450px, 270px)">1 thread/frame</text>
-
+							<text class="thread" style="transform: translate(34d0px, 30px)">Extraction: 1 Thread/Frame</text>
 
 
 							<g style="transform: translate(650px, 50px)" >
@@ -209,7 +210,7 @@
 							</g>
 							<use href="#arrow" x=900 y=150 />
 
-							<text id="tracking_thread" style="transform: translate(945px, 30px)">Tracking: 1 Thread</text>
+							<text class="thread" style="transform: translate(945px, 30px)">Tracking: 1 Thread</text>
 
 							<g style="transform: translate(950px, 50px)" >
 								<rect width="200" height="200" />
@@ -240,14 +241,26 @@
 							</g>
 							
 							<use href="#arrow" style="transform: translate(1650px, 300px) rotate(90deg)" />
+
+							<text class="thread" style="transform: translate(350px, 335px)">LocalMapping loop: 1 Thread</text>
+
 							<use href="#keyframe" style="transform: translate(1670px, 430px); opacity: 0.33"/>
 							<use href="#keyframe" style="transform: translate(1650px, 450px); opacity: 0.66"/>
 							<use href="#keyframe" style="transform: translate(1630px, 470px)"/>
 
 							<use href="#arrow" style="transform: translate(1500px, 450px) rotate(180deg)"/>
 
-
 							<g style="transform: translate(1250px, 350px)" >
+								<rect width="200" height="200" />
+
+								<text style="transform: translate(100px, 82px)">
+									<tspan x=0 >New</tspan>
+									<tspan dy="1.2em" x=0 >KeyFrame</tspan>
+									<tspan dy="1.2em" x=0 >In Queue ?</tspan>
+								</text>
+							</g>
+
+							<g style="transform: translate(950px, 350px)" >
 								<rect width="200" height="200" />
 
 								<text style="transform: translate(100px, 82px)">
@@ -258,15 +271,6 @@
 							</g>
 							<use href="#arrow" style="transform: translate(1200px, 450px) rotate(180deg)"/>
 
-							<g style="transform: translate(950px, 350px)" >
-								<rect width="200" height="200" />
-
-								<text style="transform: translate(100px, 100px)">
-									<tspan x=0 >Local Map</tspan>
-									<tspan dy="1.2em" x=0 >Adjustment</tspan>
-								</text>
-							</g>
-							<use href="#arrow" style="transform: translate(900px, 450px) rotate(180deg)"/>
 							<g style="transform: translate(650px, 350px)" >
 								<rect width="200" height="200" />
 
@@ -275,30 +279,99 @@
 									<tspan dy="1.2em" x=0 >Adjustment</tspan>
 								</text>
 							</g>
+							<use href="#arrow" style="transform: translate(900px, 450px) rotate(180deg)"/>
+							<g style="transform: translate(350px, 350px)" >
+								<rect width="200" height="200" />
+
+								<text style="transform: translate(100px, 82px)">
+									<tspan x=0 >send</tspan>
+									<tspan dy="1.2em" x=0 >KeyFrame</tspan>
+									<tspan dy="1.2em" x=0 >to Loop Closer</tspan>
+								</text>
+							</g>
 							<use href="#arrow" style="transform: translate(600px, 450px) rotate(180deg)"/>
-	
+
+							<text class="thread" style="transform: translate(350px, 635px)">LoopClosing loop: 1 Thread</text>
+
+
+							<use href="#arrow" style="transform: translate(450px, 600px) rotate(90deg)" />
+							<use href="#keyframe" style="transform: translate(470px, 730px); opacity: 0.33"/>
+							<use href="#keyframe" style="transform: translate(450px, 750px); opacity: 0.66"/>
+							<use href="#keyframe" style="transform: translate(430px, 770px)"/>
+
+							<use href="#arrow" style="transform: translate(600px, 750px)"/>
+
+							<g style="transform: translate(650px, 650px)" >
+								<rect width="200" height="200" />
+								
+								<text style="transform: translate(100px, 82px)">
+									<tspan x=0 >New</tspan>
+									<tspan dy="1.2em" x=0 >KeyFrame</tspan>
+									<tspan dy="1.2em" x=0 >In Queue?</tspan>
+								</text>
+							</g>
+							<use href="#arrow" style="transform: translate(900px, 750px)"/>
+							<g style="transform: translate(950px, 650px)" >
+								<rect width="200" height="200" />
+
+								<text style="transform: translate(100px, 100px)">
+									<tspan x=0 >Loop</tspan>
+									<tspan dy="1.2em" x=0 >Detected ?</tspan>
+								</text>
+							</g>
+							<use href="#arrow" style="transform: translate(1200px, 750px)"/>
+							<g style="transform: translate(1250px, 650px)" >
+								<rect width="200" height="200" />
+
+								<text style="transform: translate(100px, 100px)">
+									<tspan x=0 >Loop</tspan>
+									<tspan dy="1.2em" x=0 >closing</tspan>
+								</text>
+							</g>
+							<use/>
+							<text class="thread" style="transform: translate(20px, 350px)">
+								<tspan x=0>Data</tspan>
+								<tspan x=0 dy=1.2em>Structures</tspan>
+							</text>
+							<text class="list" style="transform: translate(20px, 450px)">
+									<tspan x=0>- KeyPoint</tspan>
+									<tspan x=0 dy=1.2em >- Frame</tspan>
+									<tspan x=0 dy=1.2em >- KeyFrame</tspan>
+									<tspan x=0 dy=1.2em >- KeyFrameDatabase</tspan>
+									<tspan x=0 dy=1.2em >- MapPoint</tspan>
+									<tspan x=0 dy=1.2em >- Map</tspan>
+							</text>
+							
 						</g>
 					</svg>
 					<div>
-						<p>The code looks pretty clear to me. It is well commented, each section is sapareated without impacting runtime, it is optimized, at least it looks pretty much like so to me. In any case, I don't have the means to anhance it.</p>
+						<p>The code looks pretty clean to me. It is well commented, each section is sapareated without impacting runtime, it is optimized, at least it looks pretty much like so to me. In any case, I don't have the means to anhance it.</p>
 						<br/>
 						<p>The code, and so, the programm, while in ros-monocular is divided in three main threads plus a thread per image.</p>
 						<p>Each image is sent to the ORB_extractor, a feature extractor that use a Vocabulary in the form of a bag of word. I will then extract key points from each frame. Each extraction, each frame, is computed asynchonously, that means multiple images are computed at the same time.</p>
 						<p>After that, each frame and it's extracted KeyPoints are sent to the tracking thread</p>
-						<div id="tracking">
-							<h3>Tracking</h3>
+						<div id="extraction">
+							<h3>ORB Feature extraction</h3>
 							<div>
-								<p>Tracking is itself divided in 5 states</p>
-								<ul>
-									<li>System not ready</li>
-									<li>No image yet</li>
-									<li>Not initialized - To start the SLAM, ORB_SLAM2 needs an initial map, and in monocular it can't be created at first frame because monocular camera doesn't allow depths resolution, ORB_SLAM2 have to make a first look-arround to create the initial map. So this mode appears only in monocular mode</li>
-									<li>OK - The system works correctly, all algorythmes are working correctly</li>
-									<li>LOST - The system lost track of the map. Orb Extraction's KeyPoints doesn't match any of the MapPoints, you need to move the vamera back to somwhere registered to the map.</li>
-								</ul>
+								<p>Feature extraction is done with ORB from the OpenCv Library.</p>
 								<p>Tracking decides whether or not a frame object will become a keyFrame and be registered in the KeyFrameDatabase object. It tests if there is a good balance between matching KeyPoints with MapPoint and non-matching KeyPoints.</p>
 								<p>It then sends the frame to the localMapping and LoopClosing loops that are initialized at System class instantiation...</p>
 							</div>
+						</div>
+						<div id="tracking">
+						<h3>Tracking</h3>
+						<div>
+							<p>Tracking is itself divided in 5 states</p>
+							<ul>
+								<li>System not ready</li>
+								<li>No image yet</li>
+								<li>Not initialized - To start the SLAM, ORB_SLAM2 needs an initial map, and in monocular it can't be created at first frame because monocular camera doesn't allow depths resolution, ORB_SLAM2 have to make a first look-arround to create the initial map. So this mode appears only in monocular mode</li>
+								<li>OK - The system works correctly, all algorythmes are working correctly</li>
+								<li>LOST - The system lost track of the map. Orb Extraction's KeyPoints doesn't match any of the MapPoints, you need to move the vamera back to somwhere registered to the map.</li>
+							</ul>
+							<p>Tracking decides whether or not a frame object will become a keyFrame and be registered in the KeyFrameDatabase object. It tests if there is a good balance between matching KeyPoints with MapPoint and non-matching KeyPoints.</p>
+							<p>It then sends the frame to the localMapping and LoopClosing loops that are initialized at System class instantiation...</p>
+						</div>
 						</div>
 						<div id="local_mapping">
 							<h3>Local Mapping</h3>
