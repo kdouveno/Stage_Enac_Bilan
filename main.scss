@@ -34,17 +34,21 @@ body {
 
 @media print {
 	body {
-		--background-color-1: white;
-		--header-color-1: white;
-		--text-color-1: black;
-		--thickness-1: 5px;
-
-		--container-width: 100vw;
+		--color1: black;
+		--color2: black;
+		--color3: black;
+		--colorB: white;
+		--colorT: black;
 
 		&.dark_theme{
-			--background-color-1: white;
-			--header-color-1: black;
-			--text-color-1: black;
+			--color1: black;
+			--color2: black;
+			--color3: black;
+			--colorB: white;
+			--colorT: black;
+			//dark-theme-toggle button variables
+	
+			--dark-theme-button-color: var(--color2);
 		}
 	}
 	.no-print{
@@ -76,32 +80,42 @@ body{
 	transition-property: background-color, color;
 }
 h1, h2, h3, h4, h5, h6{
-	color: $c1;
+	color: $c2;
 	transition: color $circle_out_ease;
 	
     font-family: "Lucida Console", Monaco, monospace;
 }
-h1{
-	color: $c2;
-}
+
 h1, h2{
     text-align: center;
 }
 h3, h4{
-    padding: $t1;
+	padding: $t1;
+	margin-bottom: 0px;
 	border-left: $t1 solid $c1;
 	border-radius: 4px;
+}
+h4{
+	padding: 0px $t1;
 }
 div{
 	font-size: 0.9em;
 	padding: $t1;
+	margin-left: $t1;
+	h3 + &{
+		border-left: 0.5px solid $c1;
+	}
 }
 p, ul{
 	font-size: 1rem;
+	margin-left: calc(#{$t1} * 2);
 }
 #Cover{
     p{
         text-align: center;
-    }
+	}
+	h2{
+		color: $c1;
+	}
     font-size: 2em;
 }
