@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <title>Rapport de Stage - ORB_SLAM2</title>
@@ -66,11 +66,12 @@
         <div id="introduction">
 			<h3>Introduction</h3>
 			<div>
-				<p>ORB-SLAM2 is a real-time SLAM(Simultaneous Localization And Mapping) library for Monocular, Stereo and RGB-D cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale).
+				<p><a href="https://github.com/raulmur/ORB_SLAM2">ORB-SLAM2</a> is a real-time SLAM(Simultaneous Localization And Mapping) library for Monocular, Stereo and RGB-D cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale).
 					It is able to detect loops and relocalize the camera in real time.
 					It provides several executables for different camera types as well as for ROS support.
-					It use <a>OpenCv</a> for matrix manipulation and its <a>ORB</a> algorythm for feature extraction, Pangolin for graphic interface and</p>
+					It use <a href="https://opencv.org/about/">OpenCv</a> for matrix manipulation and its <a href="https://docs.opencv.org/2.4/modules/features2d/doc/feature_detection_and_description.html#orb">ORB</a> algorythm for feature extraction, Pangolin for graphic interface and</p>
 				<p>ENAC searchers have been intrested in that technology (SLAM Algorythm) but had trouble with running Raul's programm in real time. I was hired as a c++ assistant to bring more comprehension and code knowledge and eventually optimize the programm. Indeed the programm is runnning quite not effictively.</p>
+				<p>ENAC's earchers have emmited several hypotheses about why the programm is running that bad. They wondered if the code was robust enough, and so did the hardware. They also pointed at the camera properties (resolution, Field of view, calibration), and possible bad habits in ROS use.</p>
 				<p>During my intershihp I mainly focused on the executable of ORB_SLAM2 librairy that provided real-time handling : the Monocular ROS version. It is the most Intresting part of the programm. I used different lenses on an uEye camera by IDS to test the programm.</p>
 				<div>
 					<h3>What is Simultaneous Localization And Mapping (SLAM) ?</h3>
@@ -79,7 +80,7 @@
 					</div>
 				</div>
 				<div>
-					<h3>Why ORB-SLAM2 is intresting ?</h3>
+					<h3>Why <a href="https://github.com/raulmur/ORB_SLAM2">ORB-SLAM2</a> is intresting ?</h3>
 					<div>
 						<p>SLAM Algorythm usually works with stereo or RGB-D cameras which are expensive materials. A Real-time SLAM Algorythm that can handle Monocular cameras can lead to cheaper embed hardware in systems that would need real-time localisation.</p>
 					</div>
@@ -91,12 +92,12 @@
 				<div></div>
 			</div>
 		<div id="running">
-			<h3>Running the programm</h3>
+			<h3>"Playing" with the programm</h3>
 			<div>
 				<div id="installation">
 					<h3>Installation</h3>
 					<div>
-						<p>To be able run ORB_SLAM2 with ROS on Ubuntu v.16+, apt-get utility tool (built in Ubuntu) must be installed. Because the following packages must be installed.</p>
+						<p>To be able to run ORB_SLAM2 with ROS on Ubuntu v.16+, apt-get utility tool (built in Ubuntu) must be installed. Because the following packages must be installed.</p>
 						<div>
 							<h4>With apt</h4>
 							<div>
@@ -123,9 +124,9 @@
 					</div>
 				</div>
 				<div>
-					<h3>Launch ORB-SLAM2</h3>
+					<h3>Launch <a href="https://github.com/raulmur/ORB_SLAM2">ORB-SLAM2</a></h3>
 					<div>
-						<p>Once everything is set up, the cameras calibrated, Ros launched and camera stream is on. You can launch ORB_SLAM2 with the ROS/Mono executable. Instantly, there is a feeling of slowness, Initialisation takes time, and once initialized, track is easily lost and hard to retrieve. I tried to understand what influences tracking quality overall...</p>
+						<p>Once everything is set up, the cameras calibrated, Ros launched and the camera streaming. You can launch ORB_SLAM2 with the ROS/Mono executable. Instantly, there is a feeling of slowness, Initialisation takes time, and once initialized, track is easily lost and hard to retrieve. I tried to understand what influences tracking quality overall...</p>
 					</div>
 				</div>
 				<div>
@@ -134,13 +135,13 @@
 						<div>
 							<h3>Changing PC Specifications, camera and camera's lens</h3>
 								<div>
-									<!-- Précision sur les specs -->
+									<!-- EDIT Précision sur les specs -->
 									<p>At the begining of the intership I was using a PC with rather low specifications. I could not Initialize ORB_SLAM2 and it was crashing on regular basis. I got a better pc afterwards, with intel core I7. And that enabled me to initialize with my first camera.</p>
-									<p>I started up with an old cheap desktop webcam with low resolution and bad colors and bad quality overall. Bad colors weren't a problem as ORB-SLAM2 can work with greyscales. But the low quality of the camera resulted in not recognizable enough object in raw input images. Which led to gigantic struggles from ORB-SLAM2 to initialize. <br/> Then I got a way better camera with FHD resolution. I could initialised way more easily. But now I had frequent track losses.<br/>So I tried with a wide angle lens and had more stability and less loss. But still had a lot of them.</p>
+									<p>I started up with an old cheap desktop webcam with low resolution and bad colors and bad quality overall. Bad colors weren't a problem as <a href="https://github.com/raulmur/ORB_SLAM2">ORB-SLAM2</a> can work with greyscales. But the low quality of the camera resulted in not recognizable enough object in raw input images. Which led to gigantic struggles from <a href="https://github.com/raulmur/ORB_SLAM2">ORB-SLAM2</a> to initialize. <br/> Then I got a way better camera with FHD resolution. I could initialised way more easily. But now I had frequent track losses.<br/>So I tried with a wide angle lens and had more stability and less loss. But still had a lot of them.</p>
 								</div>
 							</div>
 						<div>
-							<h3>Changing ORB-SLAM2 settings files at launch</h3>
+							<h3>Changing <a href="https://github.com/raulmur/ORB_SLAM2">ORB-SLAM2</a> settings files at launch</h3>
 							<div>
 								<p>Settings files have the following setting entries:</p>
 								<ul>
@@ -190,8 +191,9 @@
 									<li>Viewer.ViewpointZ</li>
 									<li>Viewer.ViewpointF</li>
 								</ul>
-								<p>Obviously, camera calibration must be set correctly. "Camera.Fps" has no perceptible consequences on effiency. "ORBextractor.nFeatures" and "ORBextractor.scaleFactor" does not change much either. What makes the difference is scale factors. Setting it to 1 seems to slighly speed up the programm in monocular. I observed throgh debugging the programm that "ORBExtractor.iniThFAST" is almost never used, "ORBExtractor.minThFAST" is used instead as described before.</p>
-								<p>Although Viewer has impact on SLAM algorythm effiency, slowing it, changing its parameters doesn't change the slow.</p>
+								<p>Obviously, camera calibration must be set correctly. "Camera.Fps" has no perceptible consequences on effiency. "ORBextractor.nFeatures" and "ORBextractor.scaleFactor" does not change much either. What makes the difference is scale factors. Setting it to 1 seems to slighly speed up the programm in monocular.</p>
+								<p>I observed through debugging the programm that "ORBExtractor.iniThFAST" is almost never used, "ORBExtractor.minThFAST" as described before is used instead.</p>
+								<p>Although Viewer has impact on SLAM algorythm effiency, slowing it, changing its parameters doesn't change the slow. In theory, reducing viewer window size should be less beafy </p>
 							</div>
 							
 						</div>
@@ -200,9 +202,8 @@
 			</div>
 		</div>
 		<div id="directions">
-			<h3>Possible search directions</h3>
+			<h3>A spotlight on the code</h3>
 			<div>
-				<p>ENAC's earchers have emmited several hypotheses about why the programm is running that bad. They wondered if the code was robust enough, and so did the hardware. They also pointed at the camera properties (resolution, Field of view, calibration), and possible bad habits in ROS use.</p>
 				<div id="raul">
 					<h3>Beforehand: Raul Mur-Artal on ORB_SLAM2</h3>
 					<div>
@@ -259,152 +260,156 @@
 									x2="900" y2="300"/>
 								<use href="#camera" x=120 y=150 />
 								<use href="#arrow" x=300 y=150 />
+								<a href="#extraction">
+									<text class="thread" style="transform: translate(350px, 30px)">Feature Extraction : </text>
 
-								<text class="thread" style="transform: translate(350px, 30px)">Feature Extraction : </text>
-
-								<g style="transform:translate(470px, 130px)" opacity=".33" >
-									<use href="#picture"/>
-									<use href="#arrow" style="transform: translate(150px, -5px)"/>
-								</g>
-								<g style="transform:translate(450px, 150px)" opacity=".66">
-									<use href="#picture"/>
-									<use href="#arrow" style="transform: translate(150px, 0px)"/>
-								</g>
-								<g style="transform:translate(430px, 170px)" >
-									<use href="#picture"/>
-									<use href="#arrow" style="transform: translate(150px, 5px)"/>
-								</g>
-								<text class="thread" style="transform: translate(34d0px, 30px)">Extraction: 1 Thread/Frame</text>
+									<g style="transform:translate(470px, 130px)" opacity=".33" >
+										<use href="#picture"/>
+										<use href="#arrow" style="transform: translate(150px, -5px)"/>
+									</g>
+									<g style="transform:translate(450px, 150px)" opacity=".66">
+										<use href="#picture"/>
+										<use href="#arrow" style="transform: translate(150px, 0px)"/>
+									</g>
+									<g style="transform:translate(430px, 170px)" >
+										<use href="#picture"/>
+										<use href="#arrow" style="transform: translate(150px, 5px)"/>
+									</g>
+									<text class="thread" style="transform: translate(34d0px, 30px)">Extraction: 1 Thread/Frame</text>
 
 
-								<g style="transform: translate(650px, 50px)" >
-									<rect width="200" height="200" />
+									<g style="transform: translate(650px, 50px)" >
+										<rect width="200" height="200" />
 
-									<text style="transform: translate(100px, 100px)">
-										<tspan x=0 >ORB</tspan>
-										<tspan dy="1.2em" x=0 >Extraction</tspan>
-									</text>
-								</g>
+										<text style="transform: translate(100px, 100px)">
+											<tspan x=0 >ORB</tspan>
+											<tspan dy="1.2em" x=0 >Extraction</tspan>
+										</text>
+									</g>
+								</a>
 								<use href="#arrow" x=900 y=150 />
+								<a href="#tracking">
+									<text class="thread" style="transform: translate(945px, 30px)">Tracking: 1 Thread</text>
 
-								<text class="thread" style="transform: translate(945px, 30px)">Tracking: 1 Thread</text>
+									<g style="transform: translate(950px, 50px)" >
+										<rect width="200" height="200" />
 
-								<g style="transform: translate(950px, 50px)" >
-									<rect width="200" height="200" />
+										<text style="transform: translate(100px, 100px)">
+											<tspan x=0 >Initial camera</tspan>
+											<tspan dy="1.2em" x=0 >pose estimation</tspan>
+										</text>
+									</g>
+									<use href="#arrow" x=1200 y=150 />
+									<g style="transform: translate(1250px, 50px)" >
+										<rect width="200" height="200" />
 
-									<text style="transform: translate(100px, 100px)">
-										<tspan x=0 >Initialization /</tspan>
-										<tspan dy="1.2em" x=0 >Relocalization</tspan>
-									</text>
-								</g>
-								<use href="#arrow" x=1200 y=150 />
-								<g style="transform: translate(1250px, 50px)" >
-									<rect width="200" height="200" />
+										<text style="transform: translate(100px, 100px)">
+											<tspan x=0 >Track</tspan>
+											<tspan dy="1.2em" x=0 >Local Map</tspan>
+										</text>
+									</g>
+									<use href="#arrow" x=1500 y=150 />
 
-									<text style="transform: translate(100px, 100px)">
-										<tspan x=0 >Track</tspan>
-										<tspan dy="1.2em" x=0 >Local Map</tspan>
-									</text>
-								</g>
-								<use href="#arrow" x=1500 y=150 />
+									<g style="transform: translate(1550px, 50px)" >
+										<rect width="200" height="200" />
 
-								<g style="transform: translate(1550px, 50px)" >
-									<rect width="200" height="200" />
-
-									<text style="transform: translate(100px, 100px)">
-										<tspan x=0 >New KeyFrame</tspan>
-										<tspan dy="1.2em" x=0 >Decision</tspan>
-									</text>
-								</g>
+										<text style="transform: translate(100px, 100px)">
+											<tspan x=0 >New KeyFrame</tspan>
+											<tspan dy="1.2em" x=0 >Decision</tspan>
+										</text>
+									</g>
+								</a>
 								
 								<use href="#arrow" style="transform: translate(1650px, 300px) rotate(90deg)" />
+								<a href="#local_mapping">
+									<text class="thread" style="transform: translate(350px, 335px)">LocalMapping loop: 1 Thread</text>
 
-								<text class="thread" style="transform: translate(350px, 335px)">LocalMapping loop: 1 Thread</text>
+									<use href="#keyframe" style="transform: translate(1670px, 430px); opacity: 0.33"/>
+									<use href="#keyframe" style="transform: translate(1650px, 450px); opacity: 0.66"/>
+									<use href="#keyframe" style="transform: translate(1630px, 470px)"/>
 
-								<use href="#keyframe" style="transform: translate(1670px, 430px); opacity: 0.33"/>
-								<use href="#keyframe" style="transform: translate(1650px, 450px); opacity: 0.66"/>
-								<use href="#keyframe" style="transform: translate(1630px, 470px)"/>
+									<use href="#arrow" style="transform: translate(1500px, 450px) rotate(180deg)"/>
+								
+									<g style="transform: translate(1250px, 350px)" >
+										<rect class="secondary" width="200" height="200" />
 
-								<use href="#arrow" style="transform: translate(1500px, 450px) rotate(180deg)"/>
+										<text style="transform: translate(100px, 82px)">
+											<tspan x=0 >New</tspan>
+											<tspan dy="1.2em" x=0 >KeyFrame</tspan>
+											<tspan dy="1.2em" x=0 >In Queue ?</tspan>
+										</text>
+									</g>
 
-								<g style="transform: translate(1250px, 350px)" >
-									<rect class="secondary" width="200" height="200" />
+									<g style="transform: translate(950px, 350px)" >
+										<rect width="200" height="200" />
 
-									<text style="transform: translate(100px, 82px)">
-										<tspan x=0 >New</tspan>
-										<tspan dy="1.2em" x=0 >KeyFrame</tspan>
-										<tspan dy="1.2em" x=0 >In Queue ?</tspan>
-									</text>
-								</g>
+										<text style="transform: translate(100px, 82px)">
+											<tspan x=0 >KeyFrame</tspan>
+											<tspan dy="1.2em" x=0 >Insertion</tspan>
+											<tspan dy="1.2em" x=0 >In Map</tspan>
+										</text>
+									</g>
+									<use href="#arrow" style="transform: translate(1200px, 450px) rotate(180deg)"/>
 
-								<g style="transform: translate(950px, 350px)" >
-									<rect width="200" height="200" />
+									<g style="transform: translate(650px, 350px)" >
+										<rect width="200" height="200" />
 
-									<text style="transform: translate(100px, 82px)">
-										<tspan x=0 >KeyFrame</tspan>
-										<tspan dy="1.2em" x=0 >Insertion</tspan>
-										<tspan dy="1.2em" x=0 >In Map</tspan>
-									</text>
-								</g>
-								<use href="#arrow" style="transform: translate(1200px, 450px) rotate(180deg)"/>
+										<text style="transform: translate(100px, 100px)">
+											<tspan x=0 >Local Map</tspan>
+											<tspan dy="1.2em" x=0 >Adjustment</tspan>
+										</text>
+									</g>
+									<use href="#arrow" style="transform: translate(900px, 450px) rotate(180deg)"/>
+									<g style="transform: translate(350px, 350px)" >
+										<rect width="200" height="200" />
 
-								<g style="transform: translate(650px, 350px)" >
-									<rect width="200" height="200" />
-
-									<text style="transform: translate(100px, 100px)">
-										<tspan x=0 >Local Map</tspan>
-										<tspan dy="1.2em" x=0 >Adjustment</tspan>
-									</text>
-								</g>
-								<use href="#arrow" style="transform: translate(900px, 450px) rotate(180deg)"/>
-								<g style="transform: translate(350px, 350px)" >
-									<rect width="200" height="200" />
-
-									<text style="transform: translate(100px, 82px)">
-										<tspan x=0 >send</tspan>
-										<tspan dy="1.2em" x=0 >KeyFrame</tspan>
-										<tspan dy="1.2em" x=0 >to Loop Closer</tspan>
-									</text>
-								</g>
+										<text style="transform: translate(100px, 82px)">
+											<tspan x=0 >send</tspan>
+											<tspan dy="1.2em" x=0 >KeyFrame</tspan>
+											<tspan dy="1.2em" x=0 >to Loop Closer</tspan>
+										</text>
+									</g>
+								</a>
 								<use href="#arrow" style="transform: translate(600px, 450px) rotate(180deg)"/>
+								<a href="#loop_closing">
+									<text class="thread" style="transform: translate(350px, 635px)">LoopClosing loop: 1 Thread</text>
 
-								<text class="thread" style="transform: translate(350px, 635px)">LoopClosing loop: 1 Thread</text>
 
+									<use href="#arrow" style="transform: translate(450px, 600px) rotate(90deg)" />
+									<use href="#keyframe" style="transform: translate(470px, 730px); opacity: 0.33"/>
+									<use href="#keyframe" style="transform: translate(450px, 750px); opacity: 0.66"/>
+									<use href="#keyframe" style="transform: translate(430px, 770px)"/>
 
-								<use href="#arrow" style="transform: translate(450px, 600px) rotate(90deg)" />
-								<use href="#keyframe" style="transform: translate(470px, 730px); opacity: 0.33"/>
-								<use href="#keyframe" style="transform: translate(450px, 750px); opacity: 0.66"/>
-								<use href="#keyframe" style="transform: translate(430px, 770px)"/>
+									<use href="#arrow" style="transform: translate(600px, 750px)"/>
 
-								<use href="#arrow" style="transform: translate(600px, 750px)"/>
+									<g style="transform: translate(650px, 650px)" >
+										<rect class="secondary" width="200" height="200" />
+										
+										<text style="transform: translate(100px, 82px)">
+											<tspan x=0 >New</tspan>
+											<tspan dy="1.2em" x=0 >KeyFrame</tspan>
+											<tspan dy="1.2em" x=0 >In Queue?</tspan>
+										</text>
+									</g>
+									<use href="#arrow" style="transform: translate(900px, 750px)"/>
+									<g style="transform: translate(950px, 650px)" >
+										<rect width="200" height="200" />
 
-								<g style="transform: translate(650px, 650px)" >
-									<rect class="secondary" width="200" height="200" />
-									
-									<text style="transform: translate(100px, 82px)">
-										<tspan x=0 >New</tspan>
-										<tspan dy="1.2em" x=0 >KeyFrame</tspan>
-										<tspan dy="1.2em" x=0 >In Queue?</tspan>
-									</text>
-								</g>
-								<use href="#arrow" style="transform: translate(900px, 750px)"/>
-								<g style="transform: translate(950px, 650px)" >
-									<rect width="200" height="200" />
+										<text style="transform: translate(100px, 100px)">
+											<tspan x=0 >Loop</tspan>
+											<tspan dy="1.2em" x=0 >Detection</tspan>
+										</text>
+									</g>
+									<use href="#arrow" style="transform: translate(1200px, 750px)"/>
+									<g style="transform: translate(1250px, 650px)" >
+										<rect width="200" height="200" />
 
-									<text style="transform: translate(100px, 100px)">
-										<tspan x=0 >Loop</tspan>
-										<tspan dy="1.2em" x=0 >Detection</tspan>
-									</text>
-								</g>
-								<use href="#arrow" style="transform: translate(1200px, 750px)"/>
-								<g style="transform: translate(1250px, 650px)" >
-									<rect width="200" height="200" />
-
-									<text style="transform: translate(100px, 100px)">
-										<tspan x=0 >Loop</tspan>
-										<tspan dy="1.2em" x=0 >closing</tspan>
-									</text>
-								</g>
+										<text style="transform: translate(100px, 100px)">
+											<tspan x=0 >Loop</tspan>
+											<tspan dy="1.2em" x=0 >closing</tspan>
+										</text>
+									</g>
+								</a>
 								<use/>
 								<text class="thread" style="transform: translate(20px, 350px)">
 									<tspan x=0>Data</tspan>
@@ -423,48 +428,112 @@
 						</svg>
 						<p>The code looks pretty clean to me. It is well commented, each section is sapareated without impacting runtime, it is optimized, at least it looks pretty much so to me. In any case, I don't have the means to anhance it.</p>
 						<br/>
-						<p>The code, and so, the programm, while in ros-monocular is divided in three main threads plus a thread per image of KeyPoint extraction.</p>
 						
 						<p>After that, each frame and it's extracted KeyPoints are sent to the tracking thread</p>
-						<div id="extraction">
-							<h3>ORB Feature extraction</h3>
+						<div id="multi_thread">
+							<h3>Multithreaded programming</h3>
 							<div>
-								<p>Each image received is sent to the ORB_extractor, a feature extractor that use a Vocabulary in the form of a BRIEF bag of word. I will then extract key points from each frame. Each extraction, each frame, is computed asynchonously, that means multiple images are computed at the same time.</p>
-								<p>Feature extraction is done with ORB from the OpenCv Library. Orb Uses a BRIEF</p>
-								<p>Tracking decides whether or not a frame object will become a keyFrame and be registered in the KeyFrameDatabase object. It tests if there is a good balance between matching KeyPoints with MapPoint and non-matching KeyPoints.</p>
-								<p>It then sends the frame to the localMapping and LoopClosing loops that are initialized at System class instantiation...</p>
+								<p>Modern processors possess several cores. That roughly means a <a href="https://en.wikipedia.org/wiki/Central_processing_unit">CPU</a> can do several different calculations at the same time. The most recents processors can have up to 16 cores. So the more core you have the more things you can do at the same time. Which programm use which core of the CPU is up to the Operating System. So basically OSs spread all you running processes throughout the different cores. But there's a catch.</p>
+								<p>In computer science, and in software developpement, you can make a process run on different cores using <a href="https://simple.wikipedia.org/wiki/Thread_(computer_science)">"threads</a>, it's called multithreading. So the CPU will spread all you threads equally in you cores. So using several threads in a programm can lead in a performance boost.</p>
+								<p>The code, and so, the programm, is divided in three main threads plus a thread per image for KeyPoint extraction. Which means extraction, which is the most expansive part of the programm, is multithreaded, and so more efficient.</p>
 							</div>
 						</div>
-						<div id="tracking">
-						<h3>Tracking</h3>
 						<div>
-							<p>Tracking is itself divided in 5 states</p>
-							<ul>
-								<li>System not ready</li>
-								<li>No image yet</li>
-								<li>Not initialized - To start the SLAM, ORB_SLAM2 needs an initial map, and in monocular it can't be created at first frame because monocular camera doesn't allow depths resolution, ORB_SLAM2 have to make a first look-arround to create the initial map. So this mode appears only in monocular mode</li>
-								<li>OK - The system works correctly, all algorythmes are working correctly</li>
-								<li>LOST - The system lost track of the map. Orb Extraction's KeyPoints doesn't match any of the MapPoints, you need to move the vamera back to somwhere registered to the map.</li>
-							</ul>
-							<p>Tracking decides whether or not a frame object will become a keyFrame and be registered in the KeyFrameDatabase object. It tests if there is a good balance between matching KeyPoints with MapPoint and non-matching KeyPoints.</p>
-							<p>It then sends the frame to the localMapping and LoopClosing loops that are initialized at System class instantiation...</p>
-						</div>
-						</div>
-						<div id="local_mapping">
-							<h3>Local Mapping</h3>
+							<h3>Data structures/classes</h3>
 							<div>
-								<p>Local Mapping is executed asynchonously to the tracking thread and has the mission to join new KeyFrames, that are briantly stored in memory in a sort of entrance queue via mutex objects, and their KeyPoints, to the map. It does adjustment and fusion between identical neighboor KeyFrame KeyPoints.</p>
+								<div id="keypoint">
+									<h3>KeyPoint</h3>
+									<div>
+										<p>A class representing a point of interest in a <a href="#frame">frame</a>. It has a <a href="https://medium.com/@deepanshut041/introduction-to-brief-binary-robust-independent-elementary-features-436f4a31a0e6">BRIEF feature descriptor</a> that represent a corner in the image, so that matching in later-on frames is fast.</p>
+									</div>
+								</div>
+								<div id="frame">
+									<h3>Frame</h3>
+									<div>
+										<p>A class representing a video frame, it contents a <a href="https://en.cppreference.com/w/cpp/container/vector">vector</a> of KeyPoints, a 3d position, and ID, a timestamp and otheres information like the number of ORB features found, if it's going to be a keyframe.</p>
+										<p>Frames are not necessarily going to be <a href="#keyframe">KeyFrame</a></p>
+									</div>
+								</div>
+								<div id="keyframe">
+									<h3>KeyFrame</h3>
+									<div>
+										<p>A class representing a KeyFrame. It's basically a frame with information more suitable for tracking, like MapPoint associated with KeyPoints, Covisibility neighboors, and function for matching, and KeyPoint editing.</p>
+									</div>
+								</div>
+								<div id="mappoint">
+									<h3>MapPoint</h3>
+									<div>
+										<p>A class representing a MapPoint. A 3D Point in the <a href="#map">Map</a> which is linked to the <a href="#keypoint">KeyPoints</a> from several <a href="#keyframe">KeyFrames</a>.</p>
+									</div>
+								</div>
+								<div id="map">
+									<h3>Map</h3>
+									<div>
+										<p>A class representing the map. This class gather all <a href="#keyframe">KeyFrames</a> references, and <a href="#mappoint">MapPoints</a>. It contains utility functions for 3D manipulations in the map.</p>
+									</div>
+								</div>
+								<div>
+									<h3>KeyFrameDatabase</h3>
+									<div>
+										<p>A Class representing the KeyFrame Database. Where all the KeyFrames are stored. Even the ones deleted from the Map.</p>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div id="loop_closing">
-							<h3>Loop Closing</h3>
+						<div id="computation">
+							<h3>Computation classes</h3>
 							<div>
-								<p>Loop Closing is called whether new Keyframes are a loop candidate by checking covisibility consistency. It is also running asynchronously. If a new KeyFrame has enough KeyPoints that are not in its direct KeyFrame neighborhood, ORB_SLAM2 proceed to a loop closure. It adjust all keyframes between the keyframe covisible to the new keyframe and the new KeyFrame</p>
+								<div id="extraction">
+									<h3>ORB Feature extraction</h3>
+									<div>
+										<p>Each image received is sent in its own thread to the ORB_extractor which use OpenCv's <a href="https://medium.com/@deepanshut041/introduction-to-orb-oriented-fast-and-rotated-brief-4220e8ec40cf">ORB</a> algorythm. This algorithm extracts KeyPoints from each frames and put them in the Frame's vector object. Frames are then sent to Tracking</p>
+										<p>ORB is a FAST algorythm that hande multi-scales check. That's what the scale pyramid is, and what the "nFactor" and "nLevels" settings are for. It's well explained in <a href="https://medium.com/@deepanshut041/introduction-to-orb-oriented-fast-and-rotated-brief-4220e8ec40cf#8a7a">this medium article</a>.</p>
+									</div>
+								</div>
+								<div id="tracking">
+									<h3>Tracking</h3>
+									<div>
+										<p>Tracking is itself divided in 5 states</p>
+										<ul>
+											<li>System not ready</li>
+											<li>No image yet</li>
+											<li>Not initialized - To start the SLAM, ORB_SLAM2 needs an initial map, and in monocular it can't be created at first frame because monocular camera doesn't allow depths resolution, ORB_SLAM2 have to make a first look-arround to create the initial map. So this mode appears only in monocular mode</li>
+											<li>OK - The system works correctly, all algorythmes are working correctly</li>
+											<li>LOST - The system lost track of the map. Orb Extraction's KeyPoints doesn't match any of the MapPoints, you need to move the camera back to somwhere registered to the map.</li>
+										</ul>
+										<p>Except with RGB-D cameras, Tracking first perform Initialization. There must be enough matching keyPoint between current and first frame during initialization to complete Initialization.</p>
+										<p>If the map is intialized, tracking performs camera pose estimation using motion model or relocalization (if tracking is lost). Then if tracking have pose estimation it starts localMap tracking. Which consist in searching matching keyPoints between current frame and KeyPoints in nearby KeyFrames in the map relative to pose estimation. In other words, When tracking localizes the camera via pose estimation, it gather KeyFrames closest to its position in the map. If there's no match, tracking enter LOST state. And perform a full Map Tracking which is slower.</p>
+										<p>Tracking then decides whether or not a frame object will become a keyFrame and be registered in the KeyFrameDatabase object. It tests if there is a good balance between already existing, and therefore, matching KeyPoints, and brand new ones.</p>
+										<p>It then sends the frame to the localMapping loops that is initialized at System class instantiation...</p>
+									</div>
+								</div>
+								<div id="local_mapping">
+									<h3>Local Mapping</h3>
+									<div>
+										<p>Local Mapping is executed asynchonously to
+											the tracking thread in a second one and has the mission to join new KeyFrames. New incoming KeyFrames are added to a queue. The loop test wether there's new keyframe in the queue. Then it turns KeyPoints from KeyFrames into MapPoint in the 3D Map. It apply adjustments to old points given the new ones.</p>
+										<p>It's good to know that the queue has limited spaces, and overflowing KeyFrames are simply not added to the queue, they are skipped. WHen it happens there is high chances of track lost as last keyframes will be more distant, and there will be less matching keyPoints.</p>
+										<p>It finnaly send computed Keyframes to loop closing.</p>
+									</div>
+								</div>
+								<div id="loop_closing">
+									<h3>Loop Closing</h3>
+									<div>
+										<p>Loop Closing is also executed asynchronously in a third thread. It also have its KeyFrame queue. When there's KeyFrames in the queue it checks for loop candidate by checking covisibility consistency.</p>
+										<p>If a new KeyFrame has enough KeyPoints that are not in its direct KeyFrame neighborhood in the covisibility graph, ORB_SLAM2 considere there's a loop and proceed to a loop closure. It adjust all keyframes between the keyframe covisible to the new keyframe and the new KeyFrame.</p>
+									</div>
+								</div>
+								<div id="loop_closing">
+									<h3>Viewer</h3>
+									<div>
+										<p>The viewer is executed in a fourth thread, it display a window in which we can see the <a href="#map">map</a> in 3D and navigate it with the mouse controls. It give displays <a href="mappoint">MapPoints</a>, it highlights MapPoints that are currently in sight of the camera. It shows keyframes and covisibilty graph</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div id="camera">
+				<div id="What was added during the intership">
 					<h3>The input camera</h3>
 					<div>
 						<p>The camera seems to have a great impact on how effective the program is.</p>

@@ -54,6 +54,9 @@ body {
 	.no-print{
 		display: none;
 	}
+	a{
+		text-decoration-line: none !important;
+	}
 }
 
 @media screen and (min-width: 800px) {
@@ -109,6 +112,21 @@ div{
 p, ul{
 	font-size: 1rem;
 	margin-left: calc(#{$t1} * 2);
+}
+a{
+	color: $c2;
+	stroke: $c2;
+}
+a:hover{
+	opacity: .7;
+}
+a:visited{
+	color: $c3;
+}
+h1, h2, h3, h4{
+	& a:not(:hover){
+		color: $c2;
+	}
 }
 #Cover{
     p{
